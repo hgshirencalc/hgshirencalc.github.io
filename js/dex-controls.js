@@ -220,6 +220,10 @@ function loadDexEntry(entryID) {
                             var data = `<img src="/img/dex/icon/other/tutor.png">`;
                             var method = "Move tutor";
                             break;
+                        case "egg":
+                            var data = `<img src="/img/dex/icon/other/egg.png">`;
+                            var method = "Egg move";
+                            break;
                     }
                     if (lastMethod !== learnset.method + (learnset.prevo ?? "")) $(".dex-info .results").append(`<legend class="result-header">${method}</legend>`);
                     lastMethod = learnset.method + (learnset.prevo ?? "");
@@ -403,6 +407,7 @@ function loadDexEntry(entryID) {
                 var levelLearnset = [];
                 var tmLearnset = [];
                 var tutorLearnset = [];
+                var eggLearnset = [];
                 for (var speciesID in SPECIES) {
                     var species = SPECIES[speciesID];
                     var learnsets = species.learnset.filter(x => x.move == move.id);
@@ -431,6 +436,17 @@ function loadDexEntry(entryID) {
                                         <span class="method">${method}</span>
                                     </li>`});
                                 break;
+                            case "egg":
+                                data = `Egg`;
+                                method = "Egg move";
+                                eggLearnset.push({html: `
+                                    <li class="move-learnset" data-target="species/${species.id}">
+                                        <span class="data">${data}</span>
+                                        <span class="icon"><img src="/img/dex/icon/species/${species.id}.png"></span>
+                                        <span class="name">${species.name}</span>
+                                        <span class="method">${method}</span>
+                                    </li>`});
+                                break;
                             case "tutor":
                                 data = `Tutor`;
                                 method = move.tutor;
@@ -445,7 +461,7 @@ function loadDexEntry(entryID) {
                         }
                     }
                 }
-                var learnset = levelLearnset.sort((a, b) => a.level - b.level).concat(tmLearnset).concat(tutorLearnset).map(x => x.html);
+                var learnset = levelLearnset.sort((a, b) => a.level - b.level).concat(tmLearnset).concat(tutorLearnset).concat(eggLearnset).map(x => x.html);
                 if (!learnset.length) {
                     $(".dex-info .results").append("This move cannot be normally learned.");
                 }
