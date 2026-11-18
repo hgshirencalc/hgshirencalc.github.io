@@ -173,6 +173,7 @@ function loadDexEntry(entryID) {
                 <span class="name">${species.name}</span>
                 <span class="types">${species.types.map(x => `<img src="img/dex/large/types/${x}.png" data-target="type/${x}">`).join("")}</span>
                 <span class="abilities">Abilities: ${abilities.map(x => `<span data-target="ability/${x.id}">${x.name}</span>`).join(", ")}</span>
+                ${species.hiddenAbility && ABILITIES[species.hiddenAbility] ? `<span class="abilities">Hidden ability: <span data-target="ability/${species.hiddenAbility}">${ABILITIES[species.hiddenAbility].name}</span></span>` : ""}
                 <span class="genderRatio">Gender: ${species.genderRatio}</span>
                 <span class="growthRate">Experience Group: ${species.growthRate}</span>
                 <span class="catchRate">Catch Rate: ${species.catchRate}<!--<br /><span class="catchRate-hint">(${Math.round(species.catchRate / 3 * 10) / 10}% with a <span data-target="item/pokeball">Poké Ball</span> at full HP)</span>--></span>
@@ -745,7 +746,7 @@ function loadDexEntry(entryID) {
             $(".dex-info").removeClass(classes).addClass("ability").html(html);
             function listAbilityPokemon() {
                 $(".dex-info .results").empty();
-                var speciesList = Object.values(SPECIES).filter(x => x.abilities.includes(ability.id));
+                var speciesList = Object.values(SPECIES).filter(x => x.abilities.includes(ability.id) || x.hiddenAbility == ability.id);
                 if (!speciesList.length) {
                     $(".dex-info .results").append("No Pokémon normally has this ability.");
                 }
@@ -753,7 +754,7 @@ function loadDexEntry(entryID) {
                     var species = speciesList[i];
                     $(".dex-info .results").append(`
                         <li class="ability-pokemon" data-target="species/${species.id}">
-                            <span class="data">${species.abilities.indexOf(ability.id) + 1}</span>
+                            <span class="data">${species.abilities.includes(ability.id) ? species.abilities.indexOf(ability.id) + 1 : "HA"}</span>
                             <span class="icon"><img src="/img/dex/icon/species/${species.id}.png"></span>
                             <span class="name">${species.name}</span>
                             <span class="types">${species.types.map(x => `<img src="/img/dex/icon/types/${x}.png">`).join("")}</span>
