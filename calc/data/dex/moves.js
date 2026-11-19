@@ -110,7 +110,7 @@ exports.PK_PATCH = {
     "Celebrate": { "bp": 0, "type": "Normal", "category": "Status", "target": "self", "makesContact": false },
     "Charge": { "bp": 0, "type": "Electric", "category": "Status", "target": "self", "makesContact": false },
     "Charge Beam": { "bp": 50, "type": "Electric", "category": "Special", "makesContact": false },
-    "Charm": { "bp": 0, "type": "Fairy", "category": "Status", "makesContact": false, "priority": 1 },
+    "Charm": { "bp": 0, "type": "Fairy", "category": "Status", "makesContact": false },
     "Chatter": { "bp": 65, "type": "Flying", "category": "Special", "makesContact": false },
     "Chilling Water": { "bp": 50, "type": "Water", "category": "Special", "makesContact": false },
     "Chip Away": { "bp": 70, "type": "Normal", "category": "Physical", "makesContact": true },
