@@ -170,7 +170,7 @@ function loadDexEntry(entryID) {
             var html = `
             <div class="info">
                 <img src="img/dex/large/species/${species.id}.png" class="sprite">
-                <span class="name">${species.name}</span>
+                <span class="name" title="${species.name}">${species.name}</span>
                 <span class="types">${species.types.map(x => `<img src="img/dex/large/types/${x}.png" data-target="type/${x}">`).join("")}</span>
                 <span class="abilities">Abilities: ${abilities.map(x => `<span data-target="ability/${x.id}">${x.name}</span>`).join(", ")}</span>
                 ${species.hiddenAbility && ABILITIES[species.hiddenAbility] ? `<span class="abilities">Hidden ability: <span data-target="ability/${species.hiddenAbility}">${ABILITIES[species.hiddenAbility].name}</span></span>` : ""}
@@ -422,7 +422,7 @@ function loadDexEntry(entryID) {
                                     <li class="move-learnset" data-target="species/${species.id}">
                                         <span class="data">${data}</span>
                                         <span class="icon"><img src="/img/dex/icon/species/${species.id}.png"></span>
-                                        <span class="name">${species.name}</span>
+                                        <span class="name" title="${species.name}">${species.name}</span>
                                         <span class="method">${method}</span>
                                     </li>`});
                                 break;
@@ -433,7 +433,7 @@ function loadDexEntry(entryID) {
                                     <li class="move-learnset" data-target="species/${species.id}">
                                         <span class="data">${data}</span>
                                         <span class="icon"><img src="/img/dex/icon/species/${species.id}.png"></span>
-                                        <span class="name">${species.name}</span>
+                                        <span class="name" title="${species.name}">${species.name}</span>
                                         <span class="method">${method}</span>
                                     </li>`});
                                 break;
@@ -444,7 +444,7 @@ function loadDexEntry(entryID) {
                                     <li class="move-learnset" data-target="species/${species.id}">
                                         <span class="data">${data}</span>
                                         <span class="icon"><img src="/img/dex/icon/species/${species.id}.png"></span>
-                                        <span class="name">${species.name}</span>
+                                        <span class="name" title="${species.name}">${species.name}</span>
                                         <span class="method">${method}</span>
                                     </li>`});
                                 break;
@@ -455,7 +455,7 @@ function loadDexEntry(entryID) {
                                     <li class="move-learnset" data-target="species/${species.id}">
                                         <span class="data">${data}</span>
                                         <span class="icon"><img src="/img/dex/icon/species/${species.id}.png"></span>
-                                        <span class="name">${species.name}</span>
+                                        <span class="name" title="${species.name}">${species.name}</span>
                                         <span class="method">${method}</span>
                                     </li>`});
                                 break;
@@ -587,7 +587,7 @@ function loadDexEntry(entryID) {
                             <li class="location-species${dupe ? " dupe" : ""}" data-target="${target}"${encounter.time ? ` data-encounter-time="${encounter.time}"` : ``}>
                                 <span class="data" style="${dangerStyle}" title="${danger.join(", ")}">${data}</span>
                                 <span class="icon"><img src="/img/dex/icon/species/${species.id}.png"></span>
-                                <span class="name">${species.name}</span>
+                                <span class="name" title="${species.name}">${species.name}</span>
                                 <span class="level">${level}</span>
                                 <span class="method" title="${ENCOUNTER_METHODS[encounter.method].name}"><img src="/img/dex/icon/other/${encounter.method}.png"></span>
                             </li>`);
@@ -705,7 +705,7 @@ function loadDexEntry(entryID) {
                         <li class="item-heldby" data-target="species/${species.id}">
                             <span class="data">${species.heldItems[item.id]}%</span>
                             <span class="icon"><img src="/img/dex/icon/species/${species.id}.png"></span>
-                            <span class="name">${species.name}</span>
+                            <span class="name" title="${species.name}">${species.name}</span>
                             <span class="types">${species.types.map(x => `<img src="/img/dex/icon/types/${x}.png">`).join("")}</span>
                         </li>`);
                 }
@@ -756,7 +756,7 @@ function loadDexEntry(entryID) {
                         <li class="ability-pokemon" data-target="species/${species.id}">
                             <span class="data">${species.abilities.includes(ability.id) ? species.abilities.indexOf(ability.id) + 1 : "HA"}</span>
                             <span class="icon"><img src="/img/dex/icon/species/${species.id}.png"></span>
-                            <span class="name">${species.name}</span>
+                            <span class="name" title="${species.name}">${species.name}</span>
                             <span class="types">${species.types.map(x => `<img src="/img/dex/icon/types/${x}.png">`).join("")}</span>
                         </li>`);
                 }
@@ -811,7 +811,7 @@ function loadDexEntry(entryID) {
                         <li class="type-pokemon" data-target="species/${species.id}">
                             <span class="data">${species.types.indexOf(type.id) + 1}</span>
                             <span class="icon"><img src="/img/dex/icon/species/${species.id}.png"></span>
-                            <span class="name">${species.name}</span>
+                            <span class="name" title="${species.name}">${species.name}</span>
                             <span class="types">${species.types.map(x => `<img src="/img/dex/icon/types/${x}.png">`).join("")}</span>
                         </li>`);
                 }
@@ -946,7 +946,7 @@ function search(term) {
                 if (species.id.includes(term)) results.append(`
                     <li class="species" data-target="species/${species.id}">
                         <span class="icon"><img src="/img/dex/icon/species/${species.id}.png"></span>
-                        <span class="name">${species.name}</span>
+                        <span class="name" title="${species.name}">${species.name}</span>
                         <span class="types">${species.types.map(x => `<img src="/img/dex/icon/types/${x}.png">`).join("")}</span>
                     </li>`);
                 break;

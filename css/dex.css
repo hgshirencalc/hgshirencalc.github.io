@@ -869,3 +869,11 @@
 /* HGS-ICON-LIMITS: downloaded item pictures come in different sizes, keep them small */
 img[src*="/icon/items/"] { max-width: 32px; max-height: 32px; width: auto; height: auto; object-fit: contain; }
 img[src*="/icon/species/"] { max-width: 40px; max-height: 40px; }
+
+/* Keep long Pokémon names on one line in list rows */
+li .name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+}
