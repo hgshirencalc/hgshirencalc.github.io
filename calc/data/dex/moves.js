@@ -453,7 +453,7 @@ exports.PK_PATCH = {
     "Miracle Eye": { "bp": 0, "type": "Psychic", "category": "Status", "makesContact": false },
     "Mirror Coat": { "bp": 1, "type": "Psychic", "category": "Special", "makesContact": false, "priority": -5 },
     "Mirror Move": { "bp": 0, "type": "Flying", "category": "Status", "makesContact": false, "priority": 3 },
-    "Mirror Shot": { "bp": 65, "type": "Steel", "category": "Special", "makesContact": false },
+    "Mirror Shot": { "bp": 70, "type": "Steel", "category": "Special", "makesContact": false },
     "Mist": { "bp": 0, "type": "Ice", "category": "Status", "makesContact": false },
     "Mist Ball": { "bp": 95, "type": "Psychic", "category": "Special", "makesContact": false },
     "Misty Explosion": { "bp": 100, "type": "Fairy", "category": "Special", "target": "allAdjacent", "makesContact": false },
